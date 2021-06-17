@@ -1,0 +1,150 @@
+/*
+ * # Mediaqueries - helper mixins to apply styles depending on the 
+ *   user's viewport specifications.
+ */
+/// @param {String} $value - breakpoint variable
+///
+/// @example scss - Usage
+///   .foo {
+///     @include respond-to-min($screen-small) {
+///       width: 100%
+///     }
+///   }
+///
+/// @example scss - output
+///   @media only screen and (min-width: 664px) {
+///     .foo {
+///         width: 100%; }
+///      }
+///
+
+$screen: screen;
+
+@mixin respond-to-min($value) {
+    @media #{$screen} and (min-width: $value) {
+        @content;
+    }
+}
+
+/*
+ * # Utilities - smaller helper mixins/placeholders.
+ */
+
+/*
+ * ## Centering containers
+ */
+/// center-x, centers anything on the x-axis.
+///
+/// @param {String} $value - assigns absolute or relative positioning. Default: `relative`. 
+///
+/// @example scss - Usage
+/// .foo {
+///    @include center-x;
+/// }
+///
+/// @example scss - output
+/// .foo {
+///     position: relative;
+///     left: 50%;
+///     transform: translateX(-50%);
+/// }
+///
+@mixin center-x($position: relative) {
+    position: $position;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/// center-y, centers anything on the y-axis.
+///
+/// @param {String} $value - assigns absolute or relative positioning. Default: `relative`. 
+///
+/// @example scss - Usage
+/// .foo {
+///    @include center-y;
+/// }
+///
+/// @example scss - output
+/// .foo {
+///     position: relative;
+///     top: 50%;
+///     transform: translateY(-50%);
+/// }
+///
+@mixin center-y($position: relative) {
+    position: $position;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/// center-x-y, centers anything on the x-axis and y-axis.
+///
+/// @param {String} $value - assigns absolute or relative positioning. Default: `relative`. 
+///
+/// @example scss - Usage
+/// .foo {
+///    @include center-x-y;
+/// }
+///
+/// @example scss - output
+/// .foo {
+///     position: relative;
+///     left: 50%;
+///     top: 50%;
+///     transform: translateX(-50%, -50%);
+/// }
+///
+@mixin center-x-y($position: relative) {
+    position: $position;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.opinary-center-child {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/*
+ * ## Hide visually.
+ */
+/// visuallyhidden: Hide only visually, but keep it readable for screenreaders
+///
+///
+/// @example scss - Usage
+/// .foo {
+///     @include visuallyhidden
+/// }
+///
+/// @example scss - output
+///   
+/// .foo { 
+///    border: 0; 
+///    clip: rect(0 0 0 0); 
+///    height: 1px; 
+///    margin: -1px; 
+///    overflow: hidden; 
+///    padding: 0; 
+///    position: absolute; 
+///    width: 1px; 
+///    white-space: nowrap;
+/// }
+///
+
+@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.opinary-visuallyhidden {
+    @include visuallyhidden;
+}

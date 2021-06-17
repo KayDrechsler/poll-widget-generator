@@ -1,0 +1,49 @@
+/*
+ * # Variables
+ */
+/*
+ * ## Color Variables
+ */
+ $white: #fff;
+ $black: #000;
+ 
+ $gray-xanadu: #5F7470;
+ $gray-spanish: #889696;
+ $gray-ash: #B8BDB5;
+ $gray-alabaster: #E0E2DB;
+ $gray-baby-powder: #F5F7F1;
+ 
+ $blue-sky-light: #70ccfa;
+ $blue-sky: #3fabe1;
+ $blue-carolina: #44AAE0;
+ $blue-celtic: #1D6FD4;
+ $blue-yale: #0e468a;
+ 
+ $green-spanish: #019141;
+ $green-pantone: #09ad4b;
+ $green-malachite: #10D960;
+ 
+ $yellow-lemon-creola: #F9FFB6;
+ $yellow-cream: #FAFFC5;
+ $yellow-lemon-lime: #F4FD8D;
+ 
+ $red-maroon: #7D0000;
+ $red-ruby: #9E1212;
+ $red-persian: #C33333;
+ $red-light-coral: #F47171;
+ $red-spanish: #F0B9B9;
+ $red-lavender-blush: #F0D5D5;
+ 
+ /*
+  * ## Breakpoint Variables
+  */
+ $screen-small: 480px;
+ $screen-medium: 600px;
+ $screen-large: 980px;
+ 
+ /*
+  * ## Text Shadow
+  */
+ $text-shadow-dark: 0 -1px 0 rgba(0, 0, 0, .75);
+ $text-shadow-light: 0 1px 0 $white;
+ $text-shadow-light-half: 0 1px 0 rgba(255, 255, 255, .5);

@@ -1,0 +1,68 @@
+/*
+ * # Graph - a container displaying vote results.
+ */
+ .opinary-graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 0 16px;
+
+    &__list {
+        max-width: 540px;
+        min-width: 300px;
+        width: 100%;
+    }
+
+    &__item {
+        margin-bottom: 32px;
+    }
+
+    &__label {
+        display: block;
+        font-size: 16px;
+        line-height: 1.25;
+
+        @include respond-to-min($screen-small) {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+    }
+
+    &__meter-wrapper {
+        position: relative;
+    }
+
+    &__meter {
+        height: 48px;
+        width: 100%;
+
+        &::-webkit-meter-bar {
+            background: linear-gradient(to bottom, $gray-alabaster 0%, $gray-baby-powder 100%);
+            border: 1px solid #CCC;
+        }
+
+        &::-webkit-meter-optimum-value,
+        &::-webkit-meter-suboptimum-value,
+        &::-webkit-meter-even-less-good-value {
+            background: linear-gradient(to bottom, $green-malachite 0%, $green-spanish 100%);
+            width: 0;
+            transition: 1s width ease-in-out;
+        }
+    }
+
+    /*
+     * ## Fallback for `<meter>` element which isn't widely supported yet.
+     */
+    &__percentile {
+        opacity: 0;
+        position: absolute;
+        text-shadow: $text-shadow-light;
+        top: 15px;
+        transition: 1s left ease-in-out, 1s opacity ease-in-out;
+        width: 60px;
+
+        &--visible {
+            opacity: 1;
+        }
+    }
+}

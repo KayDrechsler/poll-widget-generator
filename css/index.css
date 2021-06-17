@@ -1,0 +1,484 @@
+@charset "UTF-8";
+/*
+ * # Variables
+ */
+/*
+ * ## Color Variables
+ */
+/*
+  * ## Breakpoint Variables
+  */
+/*
+  * ## Text Shadow
+  */
+/*
+ * # Mediaqueries - helper mixins to apply styles depending on the 
+ *   user's viewport specifications.
+ */
+/*
+ * # Utilities - smaller helper mixins/placeholders.
+ */
+/*
+ * ## Centering containers
+ */
+.opinary-center-child {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+/*
+ * ## Hide visually.
+ */
+.opinary-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; }
+
+/*
+ * # Basics - styling basic HTML elements.
+ *   *Important note:* Make sure to prefix as much as possible with the `.opinary-` flag to avoid
+ *   unwanted overwrites by the client.
+ */
+.opinary-html,
+.opinary-body {
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+  .opinary-html *,
+  .opinary-body * {
+    box-sizing: border-box; }
+
+.opinary-body {
+  background: linear-gradient(0deg, #fff 0%, #3fabe1 100%);
+  background-attachment: fixed;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden; }
+
+/*
+  * # Regular default styles.
+  */
+.opinary-h1,
+.opinary-h2,
+.opinary-h3,
+.opinary-h4,
+.opinary-h5,
+.opinary-h6,
+.opinary-legend,
+.opinary-figcaption {
+  color: #019141;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #fff; }
+
+.opinary-h1 {
+  font-size: 48px; }
+  @media screen and (min-width: 600px) {
+    .opinary-h1 {
+      font-size: 64px; } }
+
+.opinary-h2 {
+  font-size: 32px; }
+  @media screen and (min-width: 600px) {
+    .opinary-h2 {
+      font-size: 48px; } }
+
+.opinary-h3 {
+  font-size: 24px; }
+  @media screen and (min-width: 600px) {
+    .opinary-h3 {
+      font-size: 31px; } }
+
+.opinary-legend {
+  display: table;
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding: 0; }
+  @media screen and (min-width: 600px) {
+    .opinary-legend {
+      font-size: 32px; } }
+
+.opinary-figcaption {
+  font-size: 32px;
+  text-align: center;
+  width: 100%; }
+
+.opinary-code {
+  background-color: #E0E2DB;
+  border-radius: 16px;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.25);
+  display: block;
+  margin-bottom: 16px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px; }
+
+.opinary-small {
+  color: #889696;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: right; }
+  .opinary-small--headline {
+    display: block;
+    text-align: right; }
+
+.opinary-p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 24px 0; }
+
+.opinary-fieldset {
+  border: 0;
+  margin: 0 0 32px;
+  min-width: 0;
+  padding: 0.01em 0 0; }
+
+.opinary-ul {
+  list-style: none;
+  padding: 0; }
+
+.opinary-text-center {
+  text-align: center; }
+
+/*
+ * # Buttons
+ */
+/*
+ * ## Confirmation button
+ */
+.opinary-button {
+  background: linear-gradient(to bottom, #70ccfa 0%, #3fabe1 100%);
+  border-radius: 8px;
+  border: 2px solid #0e468a;
+  box-shadow: inset 0 0 1px 2px rgba(255, 255, 255, 0.27), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  min-width: 32px;
+  padding: 8px 32px;
+  position: relative;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+  transform-style: preserve-3d;
+  transition: text-shadow 0.125s linear, transform 0.125s cubic-bezier(0, 0, 0.58, 1);
+  /* background .125s cubic-bezier(0, 0, 0.58, 1) */
+  /* - Preventing flicker on hovering the button while it animates.
+         Todo: fix this hack! */ }
+  .opinary-button::before {
+    background-color: #1D6FD4;
+    bottom: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px #0e468a, 0 0.45em 0 0 rgba(29, 111, 212, 0.25);
+    content: '';
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    transform: translate3d(0, 0.4em, -1em);
+    transition: transform 0.125s cubic-bezier(0, 0, 0.58, 1), box-shadow 0.125s cubic-bezier(0, 0, 0.58, 1);
+    z-index: 1; }
+  .opinary-button::after {
+    background-color: transparent;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    top: -18px;
+    position: absolute;
+    width: 100%; }
+  .opinary-button:hover {
+    background: #70ccfa;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    transform: translate(0, 0.25em); }
+    .opinary-button:hover::before {
+      box-shadow: 0 0 0 2px #0e468a, 0 0.25em 0 0 rgba(29, 111, 212, 0.5);
+      transform: translate3d(0, 0.25em, -1em); }
+  .opinary-button:active {
+    background: #70ccfa;
+    text-shadow: none;
+    transform: translate(0, 0.75em); }
+    .opinary-button:active::before {
+      box-shadow: 0 0 0 2px #0e468a, 0 0.25em 0 0 rgba(29, 111, 212, 0.1);
+      transform: translate3d(0, 0, -1em); }
+
+/*
+ * ## Create answer button
+ */
+.opinary-poll__create-answer {
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.opinary-poll__create-answer-body {
+  color: #0e468a;
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: underline; }
+  .opinary-poll__create-answer-body:hover {
+    cursor: pointer;
+    text-decoration: none; }
+  @media screen and (min-width: 600px) {
+    .opinary-poll__create-answer-body {
+      font-size: 18px;
+      margin-bottom: 24px; } }
+  .opinary-poll__create-answer-body::before {
+    content: '+';
+    font-weight: bold; }
+
+/*
+ * ## Remove answer button
+ */
+.opinary-poll__additional-answer {
+  align-items: flex-start;
+  display: flex; }
+
+.opinary-poll__remove-answer {
+  background: linear-gradient(to bottom, #F0D5D5 0%, #F47171 100%);
+  border: 2px solid #C33333;
+  box-shadow: inset 0 0 1px 2px rgba(255, 255, 255, 0.27), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  height: 50px;
+  margin-left: 8px;
+  position: relative;
+  width: 50px; }
+  .opinary-poll__remove-answer:hover {
+    cursor: pointer; }
+  .opinary-poll__remove-answer::before {
+    color: #fff;
+    content: '✕';
+    font-size: 26px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+
+.opinary-poll__remove-answer-body {
+  display: block;
+  height: 50px;
+  overflow: hidden;
+  text-indent: -9999em;
+  width: 50px; }
+
+/*
+ * # Code hint: error message.
+ */
+.opinary-code-hint {
+  background-color: #F0B9B9;
+  border: 1px solid #F47171;
+  border-radius: 16px;
+  color: #7D0000;
+  display: block;
+  margin: 16px 0;
+  padding: 12px;
+  text-align: center; }
+
+/*
+ * # Styled form elements
+ */
+/*
+ * ## Text inputs
+ */
+.opinary-input-text {
+  background: linear-gradient(180deg, #FAFFC5, #F4FD8D);
+  border: 2px solid #fff;
+  border-top: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, 0.3);
+  color: #0e468a;
+  font-size: 14px;
+  margin: 0 0 28px;
+  padding: 8px;
+  width: 100%; }
+  .opinary-input-text:focus-visible {
+    outline: 0; }
+  @media screen and (min-width: 600px) {
+    .opinary-input-text {
+      border-radius: 16px;
+      font-size: 22px;
+      margin: 0 0 32px;
+      padding: 12px; } }
+
+/*
+ * ## Labels
+ */
+.opinary-label {
+  color: #0e468a;
+  display: inline-block;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 12px;
+  padding-left: 8px; }
+  @media screen and (min-width: 600px) {
+    .opinary-label {
+      font-size: 18px; } }
+
+/*
+ * # Boxes - simple box visualization with dropshadows.
+ */
+.opinary-poll,
+.opinary-result {
+  margin: 0 0 32px;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+  .opinary-poll::before, .opinary-poll::after,
+  .opinary-result::before,
+  .opinary-result::after {
+    background: #5F7470;
+    bottom: 15px;
+    box-shadow: 0 15px 10px #5F7470;
+    content: '';
+    height: 18px;
+    max-width: 300px;
+    position: absolute;
+    width: 50%;
+    z-index: 1; }
+  .opinary-poll::before,
+  .opinary-result::before {
+    left: 10px;
+    transform: rotate(-3deg); }
+  .opinary-poll::after,
+  .opinary-result::after {
+    left: auto;
+    right: 10px;
+    transform: rotate(3deg); }
+  .opinary-poll__body,
+  .opinary-result__body {
+    background-color: #fff;
+    padding: 1px 16px 16px;
+    position: relative;
+    z-index: 2; }
+    @media screen and (min-width: 600px) {
+      .opinary-poll__body,
+      .opinary-result__body {
+        padding-left: 32px;
+        padding-right: 32px; } }
+
+/*
+ * # Questionnaire styles
+ */
+.opinary-questionnaire {
+  list-style: none;
+  padding: 0; }
+  .opinary-questionnaire__item {
+    border-bottom: 1px solid #E0E2DB; }
+  .opinary-questionnaire__item-body {
+    align-items: center;
+    display: inline-flex; }
+  .opinary-questionnaire__label {
+    color: #889696;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.25;
+    height: 100%;
+    padding-bottom: 32px;
+    padding-left: 8px;
+    padding-top: 32px;
+    transition: color .125s linear,  padding .125s linear; }
+    .opinary-questionnaire__item-body:hover .opinary-questionnaire__label {
+      color: #0e468a;
+      cursor: pointer;
+      font-weight: bold;
+      padding-left: 16px; }
+    .opinary-questionnaire__input-radio:checked + .opinary-questionnaire__label {
+      color: #0e468a;
+      cursor: default;
+      font-weight: bold;
+      padding-left: 16px; }
+    @media screen and (min-width: 600px) {
+      .opinary-questionnaire__label {
+        font-size: 22px;
+        line-height: 1.5; } }
+  .opinary-questionnaire__input-radio {
+    appearance: none;
+    background-color: #E0E2DB;
+    border-radius: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    height: 24px;
+    margin: 0;
+    position: relative;
+    width: 24px;
+    transition: all .25s ease-out 0s;
+    z-index: 5; }
+    .opinary-questionnaire__item-body:hover .opinary-questionnaire__input-radio {
+      background-color: #3fabe1; }
+    .opinary-questionnaire__input-radio:hover {
+      cursor: pointer; }
+    .opinary-questionnaire__input-radio:checked {
+      background-color: #44AAE0; }
+      .opinary-questionnaire__input-radio:checked::before {
+        color: #fff;
+        content: '✔';
+        display: inline-block;
+        text-align: center;
+        text-shadow: -1px 2px 0 rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); }
+
+/*
+ * # Graph - a container displaying vote results.
+ */
+.opinary-graph {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 16px;
+  /*
+     * ## Fallback for `<meter>` element which isn't widely supported yet.
+     */ }
+  .opinary-graph__list {
+    max-width: 540px;
+    min-width: 300px;
+    width: 100%; }
+  .opinary-graph__item {
+    margin-bottom: 32px; }
+  .opinary-graph__label {
+    display: block;
+    font-size: 16px;
+    line-height: 1.25; }
+    @media screen and (min-width: 480px) {
+      .opinary-graph__label {
+        font-size: 22px;
+        line-height: 1.5; } }
+  .opinary-graph__meter-wrapper {
+    position: relative; }
+  .opinary-graph__meter {
+    height: 48px;
+    width: 100%; }
+    .opinary-graph__meter::-webkit-meter-bar {
+      background: linear-gradient(to bottom, #E0E2DB 0%, #F5F7F1 100%);
+      border: 1px solid #CCC; }
+    .opinary-graph__meter::-webkit-meter-optimum-value, .opinary-graph__meter::-webkit-meter-suboptimum-value, .opinary-graph__meter::-webkit-meter-even-less-good-value {
+      background: linear-gradient(to bottom, #10D960 0%, #019141 100%);
+      width: 0;
+      transition: 1s width ease-in-out; }
+  .opinary-graph__percentile {
+    opacity: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #fff;
+    top: 15px;
+    transition: 1s left ease-in-out, 1s opacity ease-in-out;
+    width: 60px; }
+    .opinary-graph__percentile--visible {
+      opacity: 1; }

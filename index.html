@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="opinary-html">
+    <head>
+        <title>Opinary Code Challenge &ndash; Kay Drechsler</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body class="opinary-body">
+        <section class="opinary-poll">
+            <div class="opinary-poll__body">
+                <h1 class="opinary-h1">Create your own poll.</h1>
+                <form action="#">
+                    <fieldset class="opinary-fieldset">
+                        <legend class="opinary-legend">Step 1: phrase your poll's question.</legend>
+                        <label for="opinary-input-text-question" class="opinary-label">Type your question here</label>
+                        <input type="text" name="opinary-input-text-question" id="opinary-input-text-question" placeholder="Example: What do you like to eat today?" class="opinary-input-text">
+                    </fieldset>
+        
+                    <fieldset class="opinary-fieldset">
+                        <legend class="opinary-legend">Step 2: provide a set of possible answers.</legend>
+                        <div class="opinary-poll__answer-row">
+                            <label for="opinary-input-type-answer-01" class="opinary-label">Enter a poll answer</label>
+                            <input type="text" name="opinary-input-type-answer[]" id="opinary-input-type-answer-01" class="opinary-input-text">
+                        </div>
+        
+                        <div class="opinary-poll__answer-row">
+                            <label for="opinary-input-type-answer-02" class="opinary-label">Enter a poll answer</label>
+                            <input type="text" name="opinary-input-type-answer[]" id="opinary-input-type-answer-02" class="opinary-input-text">
+                        </div>
+
+                        <button type="button" class="opinary-poll__create-answer" id="opinary-create-answer">
+                            <span class="opinary-poll__create-answer-body">
+                                Create an additional poll answer
+                            </span>
+                        </button>
+                    </fieldset>
+        
+                    <div class="opinary-center-child" id="opinary-create-form-button">
+                        <button type="button" class="opinary-button opinary-button-js">Create Poll</button>
+                    </div>
+                </form>
+                <div id="opinary-code-to-copy"></div>
+            </div>
+        </section>
+
+        <script src="./js/configForm.js" type="module"></script>
+    </body>
+</html>

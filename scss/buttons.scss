@@ -1,0 +1,150 @@
+/*
+ * # Buttons
+ */
+/*
+ * ## Confirmation button
+ */
+ .opinary-button {
+    background: linear-gradient(to bottom, $blue-sky-light 0%, $blue-sky 100%);
+    border-radius: 8px;
+    border: 2px solid $blue-yale;
+    box-shadow: inset 0 0 1px 2px rgba(255, 255, 255, .27), 
+                inset 0 1px 0 0 rgba(255, 255, 255, .50), 
+                inset 0 1px 0 0 rgba(255, 255, 255, .50);
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    min-width: 32px;
+    padding: 8px 32px;
+    position: relative;
+    text-shadow: $text-shadow-dark;
+    transform-style: preserve-3d;
+    transition: text-shadow .125s linear, transform .125s cubic-bezier(0, 0, 0.58, 1); /* background .125s cubic-bezier(0, 0, 0.58, 1) */
+
+    &::before {
+        background-color: $blue-celtic;
+        bottom: 0;
+        border-radius: 8px;
+        box-shadow: 0 0 0 2px $blue-yale, 0 0.45em 0 0 rgba(29, 111, 212, .25);
+        content: '';
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        position: absolute;
+        transform: translate3d(0, 0.4em, -1em);
+        transition: transform .125s cubic-bezier(0, 0, 0.58, 1), box-shadow .125s cubic-bezier(0, 0, 0.58, 1);
+        z-index: 1;
+    }
+
+    /* - Preventing flicker on hovering the button while it animates.
+         Todo: fix this hack! */
+    &::after {
+        background-color: transparent;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        top: -18px;
+        position: absolute;
+        width: 100%;
+    }
+
+    &:hover {
+        background: $blue-sky-light;
+        text-shadow: $text-shadow-light-half;
+        transform: translate(0, 0.25em);
+
+        &::before {
+            box-shadow: 0 0 0 2px $blue-yale, 0 0.25em 0 0 rgba(29, 111, 212, .5);
+            transform: translate3d(0, 0.25em, -1em);
+        }
+    }
+
+    &:active {
+        background: $blue-sky-light;
+        text-shadow: none;
+        transform: translate(0, 0.75em);
+
+        &::before {
+            box-shadow: 0 0 0 2px $blue-yale, 0 0.25em 0 0 rgba(29, 111, 212, .1);
+            transform: translate3d(0, 0, -1em);
+        }
+    }
+}
+
+/*
+ * ## Create answer button
+ */
+.opinary-poll__create-answer {
+    background-color: transparent;
+    border: 0;
+    @include center-x;
+}
+
+.opinary-poll__create-answer-body {
+    color: $blue-yale;
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    @include respond-to-min($screen-medium) {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    &::before {
+        content: '+';
+        font-weight: bold;
+    }
+}
+
+/*
+ * ## Remove answer button
+ */
+.opinary-poll__additional-answer {
+    align-items: flex-start;
+    display: flex;
+}
+
+.opinary-poll__remove-answer {
+    background: linear-gradient(to bottom, $red-lavender-blush 0%, $red-light-coral 100%);
+    border: 2px solid $red-persian;
+    box-shadow: inset 0 0 1px 2px rgba(255, 255, 255, .27), 
+                inset 0 1px 0 0 rgba(255, 255, 255, .50), 
+                inset 0 1px 0 0 rgba(255, 255, 255, .50);
+    border-radius: 8px;
+    height: 50px;
+    margin-left: 8px;
+    position: relative;
+    width: 50px;
+    
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        color: $white;
+        content: '✕';
+        font-size: 26px;
+        display: block;
+        @include center-x-y(absolute);
+    }
+}
+
+.opinary-poll__remove-answer-body {
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    text-indent: -9999em;
+    width: 50px;
+}

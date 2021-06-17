@@ -1,0 +1,127 @@
+/*
+ * # Basics - styling basic HTML elements.
+ *   *Important note:* Make sure to prefix as much as possible with the `.opinary-` flag to avoid
+ *   unwanted overwrites by the client.
+ */
+
+ .opinary-html,
+ .opinary-body {
+     box-sizing: border-box;
+     min-height: 100%;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+ 
+     * {
+         box-sizing: border-box;
+     }
+ }
+ 
+ .opinary-body {
+     background: linear-gradient(0deg, $white 0%, $blue-sky 100%);
+     background-attachment: fixed;
+     font-family: "Helvetica Neue", Arial, sans-serif;
+     overflow-x: hidden;
+ }
+ 
+ /*
+  * # Regular default styles.
+  */
+ .opinary-h1,
+ .opinary-h2,
+ .opinary-h3,
+ .opinary-h4,
+ .opinary-h5,
+ .opinary-h6,
+ .opinary-legend,
+ .opinary-figcaption {
+     color: $green-spanish;
+     font-weight: bold;
+     text-shadow: $text-shadow-light;
+ }
+ 
+ .opinary-h1 {
+     font-size: 48px;
+ 
+     @include respond-to-min($screen-medium) {
+         font-size: 64px;
+     }
+ }
+ 
+ .opinary-h2 {
+     font-size: 32px;
+ 
+     @include respond-to-min($screen-medium) {
+         font-size: 48px;
+     }
+ }
+ 
+ .opinary-h3 {
+     font-size: 24px;
+     
+     @include respond-to-min($screen-medium) {
+         font-size: 31px;
+     }
+ }
+ 
+ .opinary-legend {
+     display: table;
+     font-size: 24px;
+     margin-bottom: 16px;
+     padding: 0;
+ 
+     @include respond-to-min($screen-medium) {
+         font-size: 32px;
+     }
+ }
+ 
+ .opinary-figcaption {
+     font-size: 32px;
+     text-align: center;
+     width: 100%;
+ }
+ 
+ .opinary-code {
+     background-color: $gray-alabaster;
+     border-radius: 16px;
+     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, .25);
+     display: block;
+     margin-bottom: 16px;
+     max-width: 100%;
+     overflow-x: auto;
+     padding: 16px;
+ }
+ 
+ .opinary-small {
+     color: $gray-spanish;
+     font-size: 12px;
+     font-weight: normal;
+     text-align: right;
+ 
+     &--headline {
+         display: block;
+         text-align: right;
+     }
+ }
+ 
+ .opinary-p {
+     font-size: 18px;
+     line-height: 1.5;
+     margin: 24px 0;
+ }
+ 
+ .opinary-fieldset {
+     border: 0;
+     margin: 0 0 32px;
+     min-width: 0;
+     padding: 0.01em 0 0;
+ }
+ 
+ .opinary-ul {
+     list-style: none;
+     padding: 0;
+ }
+ 
+ .opinary-text-center {
+     text-align: center;
+ }

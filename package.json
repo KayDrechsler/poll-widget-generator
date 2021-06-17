@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "scss": "node-sass --watch scss -o css",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "local-web-server": "^4.2.1",
+    "node-sass": "^6.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4"
+  },
+  "jest": {
+    "transform": {}
+  },
+  "type": "module"
+}

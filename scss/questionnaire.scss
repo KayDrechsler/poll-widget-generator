@@ -1,0 +1,84 @@
+/*
+ * # Questionnaire styles
+ */
+ .opinary-questionnaire {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+        border-bottom: 1px solid $gray-alabaster;
+    }
+
+    &__item-body {
+        align-items: center;
+        display: inline-flex;
+    }
+    
+    &__label {
+        color: $gray-spanish;
+        font-size: 16px;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 1.25;
+        height: 100%;
+        padding-bottom: 32px;
+        padding-left: 8px;
+        padding-top: 32px;
+        transition: color .125s linear, 
+                    padding .125s linear;
+        
+        .opinary-questionnaire__item-body:hover & {
+            color: $blue-yale;
+            cursor: pointer;
+            font-weight: bold;
+            padding-left: 16px;
+        }
+
+        .opinary-questionnaire__input-radio:checked + & {
+            color: $blue-yale;
+            cursor: default;
+            font-weight: bold;
+            padding-left: 16px;
+        } 
+        
+        @include respond-to-min($screen-medium) {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+    }
+
+    &__input-radio {
+        appearance: none;
+        background-color: $gray-alabaster;
+        border-radius: 100%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+        color: $white;
+        height: 24px;
+        margin: 0;
+        position: relative;
+        width: 24px;
+        transition: all .25s ease-out 0s;
+        z-index: 5;
+
+        .opinary-questionnaire__item-body:hover & {
+            background-color: $blue-sky;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:checked {
+            background-color: $blue-carolina;
+
+            &::before {
+                color: $white;
+                content: '✔';
+                display: inline-block;
+                text-align: center;
+                text-shadow: -1px 2px 0 rgba(0, 0, 0, .5);
+                @include center-x-y(absolute);
+            }
+        }
+    }
+}

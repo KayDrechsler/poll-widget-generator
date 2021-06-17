@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="opinary-html">
+    <head>
+        <title>Opinary Code Challenge &ndash; Kay Drechsler :: poll 1</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body class="opinary-body">
+        <link rel="stylesheet" href="http://localhost:8000/css/index.css" />
+        <div class="opinary-what-would-you-like-to-eat-today--container"></div>
+        <script src="http://localhost:8000/js/main.js" type="module"></script>
+        <script>
+            window.addEventListener('load', function() {
+                createOpinaryWidget(
+                    "opinary-what-would-you-like-to-eat-today--widget",
+                    "opinary-what-would-you-like-to-eat-today--container", 
+                    "What would you like to eat today?",
+                    ["Croissant","Cookies","Chocolate","Muffins","Ice cream"]
+                );
+            });
+        </script>
+        <p style="text-align: center; color: #acacac; padding-top: 20px;">Hint: for demo purposes you can just reload the page to vote again.</p>
+    </body>
+</html>
+

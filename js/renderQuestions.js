@@ -1,9 +1,7 @@
-const renderQuestions = (questionArr, renderInTargetContainer) => {
-    
-    /*
-     * # Create markup for each question that was created for the questionnaire.
-     */
-    
+/*
+ * # Create markup for each question that was created for the questionnaire.
+ */
+const renderQuestions = (questionArr, renderInTargetContainer) => { 
     questionArr.forEach((question, i) => {
         const singleQuestion = `<li class="opinary-questionnaire__item">
             <div class="opinary-questionnaire__item-body">

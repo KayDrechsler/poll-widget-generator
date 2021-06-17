@@ -1,10 +1,9 @@
 const renderResult = (
     targetElement, 
     pollQuestion, 
-    resultArr,
+    pollChoicesArr,
     totalVoteCount,
     ) => {
-
     const resultContainer = `<section class="opinary-result">
             <div class="opinary-result__body">
                 <header>
@@ -14,8 +13,7 @@ const renderResult = (
                 <figure class="opinary-graph">
                     <figcaption class="opinary-figcaption">${pollQuestion}</figcaption>
                     <ul class="opinary-ul opinary-graph__list">
-                        ${resultArr.map(({name, voteCount, percentile}, index) => {
-
+                        ${pollChoicesArr.map(({name, voteCount, percentile}) => {
                             return `<li class="opinary-graph__item">
                                 <em class="opinary-graph__label">${name}</em>
                                 <div class="opinary-graph__meter-wrapper">
@@ -48,18 +46,18 @@ const renderResult = (
         
         /* - Meter bar */
         meterCollection.forEach((meter, index) => { 
-            meter.value = resultArr[index].percentile;
+            meter.value = pollChoicesArr[index].percentile;
         });
         
         /* - Percentile text label */
         let displayPercentile = "";
         
         meterLabelCollection.forEach((label, index) => {
-            if(resultArr[index].percentile >= 80) {
+            if(pollChoicesArr[index].percentile >= 80) {
                 /* - Avoid misplaced labels on higher percentages on mobile viewports. */
-                displayPercentile = `left: calc(${resultArr[index].percentile}% - 62px); text-align: right;`;
+                displayPercentile = `left: calc(${pollChoicesArr[index].percentile}% - 62px); text-align: right;`;
             } else {
-                displayPercentile = `left: calc(${resultArr[index].percentile}% + 4px);`
+                displayPercentile = `left: calc(${pollChoicesArr[index].percentile}% + 4px);`
             }
             
             label.style = displayPercentile;
@@ -68,7 +66,7 @@ const renderResult = (
     };
 
     /* - This setTimeout is necessary to animate the meter's pseudo elements. */
-    setTimeout(() => {animateMeter()}, 400);
+    setTimeout(() => { animateMeter() }, 5);
 
     targetElement.innerHTML = resultContainer;
 }

@@ -2,7 +2,7 @@ import { renderQuestions } from './renderQuestions.js';
 import { handleVote } from './handleVote.js';
 
 /*
- * # Create Widget - a function allowing users to output a vote 
+ * # Create Widget - a function allowing users to output a poll. 
  */
 const createOpinaryWidget = (uniqueName, targetElement, pollQuestion, questionArr) => {
     const pollContainer = `<div class="opinary-body">
@@ -44,21 +44,3 @@ const createOpinaryWidget = (uniqueName, targetElement, pollQuestion, questionAr
 }
 
 window.createOpinaryWidget = createOpinaryWidget;
-
-/* - Todo: how to declare this only once and reuse it instead of parsing it down? */
-/*
-const targetElement01 = document.querySelector('.opinary-target-container-01');
-
-createOpinaryWidget(
-    "opinaryWidget0",
-    targetElement01, 
-    "Which vaccine would you prefer?",
-    [
-        "AstraZeneca",
-        "Biontech/Pfizer",
-        "Sputnik V",
-        "Johnson&Johnson",
-        "Sinofarm",
-        "Another vaccine",
-    ]
-);*/

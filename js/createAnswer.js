@@ -2,9 +2,9 @@
  * # Create Answer: a function that allows users to create/remove poll answers if needed.
  */
 
-const createAnswer = (additionalAnswerCount) => {
-
-    const inputId = 'opinary-input-type-answer-' + additionalAnswerCount;
+const createAnswer = (totalAnswerCount) => {
+    const inputId = 'opinary-input-type-answer-' + totalAnswerCount;
+    const removeButton = document.getElementsByClassName('opinary-poll__remove-answer');
 
     const additionalAnswerRow = `<div class="opinary-poll__answer-row">
         <label for="${inputId}" class="opinary-label">Enter a poll answer</label>
@@ -16,7 +16,6 @@ const createAnswer = (additionalAnswerCount) => {
             </button>
         </div>
     </div>`;
-    var removeButton = document.getElementsByClassName('opinary-poll__remove-answer');
 
     /*
      * ## Append answer

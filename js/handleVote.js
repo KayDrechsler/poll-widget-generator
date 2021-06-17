@@ -15,7 +15,7 @@ const handleVote = (
      */
     const loadedResult = localStorage.getItem(uniqueName);
     
-    let resultArr = loadedResult ? JSON.parse(loadedResult) : questionArr.map((el) => {
+    let pollChoicesArr = loadedResult ? JSON.parse(loadedResult) : questionArr.map((el) => {
        let returnObj = {};
        returnObj["name"] = el;
        returnObj["voteCount"] = 0;
@@ -26,6 +26,7 @@ const handleVote = (
     /*
      * ## Read out the user's vote
      */
+    
     /*
      * ### Iterate over each `li` inside `questionArr` and find the `input[type=radio]` that
            is `checked`.
@@ -67,16 +68,16 @@ const handleVote = (
                 findRadioChecked(questionListRadioButtons), 
                 '.opinary-questionnaire__label'
             ),
-            resultArr
+            pollChoicesArr
         );
         
-        const voteStats = calcVotePercentile(resultArr);
+        const voteStats = calcVotePercentile(pollChoicesArr);
 
-        localStorage.setItem(uniqueName, JSON.stringify(resultArr));
+        localStorage.setItem(uniqueName, JSON.stringify(pollChoicesArr));
         renderResult(
             resultWrapper, 
             pollQuestion, 
-            resultArr,
+            pollChoicesArr,
             voteStats,
         );
     });

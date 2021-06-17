@@ -1,6 +1,6 @@
 import { calcVotePercentile } from '../calcVotePercentile';
 
-test('Given resultArr return a number of total votes', () => {
+test('Given pollChoicesArr return a number of total votes', () => {
     expect(calcVotePercentile([
         {
             percentile: 0,
@@ -17,8 +17,8 @@ test('Given resultArr return a number of total votes', () => {
     ])).toBe(7);
 });
 
-test('Given resultArr with changed voteCounts recalculate the percentiles', () => {
-    let resultArr = [
+test('Given pollChoicesArr with changed voteCounts recalculate the percentiles', () => {
+    let pollChoicesArr = [
         {
             percentile: 33.33,
             voteCount: 1,
@@ -33,9 +33,9 @@ test('Given resultArr with changed voteCounts recalculate the percentiles', () =
         },
     ]
 
-    calcVotePercentile(resultArr)
+    calcVotePercentile(pollChoicesArr)
 
-    expect(resultArr).toEqual([
+    expect(pollChoicesArr).toEqual([
         {
             percentile: 25,
             voteCount: 1,

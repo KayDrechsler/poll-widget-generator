@@ -1,7 +1,7 @@
 import { increaseVote } from "../increaseVote";
 
-test('Increase the `voteCount` by 1 if the the chosen `vote` is matching the corresponding `resultArr.name` field.', () => {
-    let resultArr = [
+test('Increase the `voteCount` by 1 if the the chosen `vote` is matching the corresponding `pollChoicesArr.name` field.', () => {
+    let pollChoicesArr = [
         { 
             name: "Foo", 
             voteCount: 0,
@@ -12,9 +12,9 @@ test('Increase the `voteCount` by 1 if the the chosen `vote` is matching the cor
         }
     ];
 
-    increaseVote("Foo", resultArr);
+    increaseVote("Foo", pollChoicesArr);
     
-    expect(resultArr).toEqual(
+    expect(pollChoicesArr).toEqual(
         [
             { 
                 name: "Foo", 
@@ -27,9 +27,9 @@ test('Increase the `voteCount` by 1 if the the chosen `vote` is matching the cor
         ]
     );
 
-    increaseVote("Foo", resultArr);
+    increaseVote("Foo", pollChoicesArr);
 
-    expect(resultArr).toEqual(
+    expect(pollChoicesArr).toEqual(
         [
             { 
                 name: "Foo", 
@@ -43,8 +43,8 @@ test('Increase the `voteCount` by 1 if the the chosen `vote` is matching the cor
     );
 });
 
-test('Given unknown label do not change the `voteCount` of `resultArr`', () => {
-    let resultArr = [
+test('Given unknown label do not change the `voteCount` of `pollChoicesArr`', () => {
+    let pollChoicesArr = [
         { 
             name: "Foo", 
             voteCount: 1,
@@ -55,9 +55,9 @@ test('Given unknown label do not change the `voteCount` of `resultArr`', () => {
         }
     ];
     
-    increaseVote("Baz", resultArr);
+    increaseVote("Baz", pollChoicesArr);
 
-    expect(resultArr).toEqual(
+    expect(pollChoicesArr).toEqual(
         [
             { 
                 name: "Foo", 

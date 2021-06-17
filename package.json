@@ -1,4 +1,7 @@
 {
+  "name": "poll-widget-generator",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "scss": "node-sass --watch scss -o css",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"

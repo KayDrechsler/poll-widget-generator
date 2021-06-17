@@ -8,11 +8,16 @@ window.addEventListener('load', function() {
     /*
      * ## Create/Remove additional answers.
      */
-    let additionalAnswerCount = 2;
-    
+    let totalAnswerCount = 2;
+    const codeHeadline = '<h2 class="opinary-h3 opinary-code-headline">Copy this code snippet into the source code of your website:</h2>';
+    const codeHeadlineInvalid = '<em class="opinary-code-hint" id="opinary-warning-invalid-setup">Please enter at least <strong>one valid poll question</strong> and <strong>two valid poll answers</strong>!</em>';
+    const buttonWrapper = document.getElementById('opinary-create-form-button');
+    const warning = document.getElementById('opinary-warning-invalid-setup');
+    const codeBlock = document.getElementById('opinary-code-wrapper');
+
     document.getElementById('opinary-create-answer').addEventListener('click', () => {
-        additionalAnswerCount++;
-        createAnswer(additionalAnswerCount);
+        totalAnswerCount++;
+        createAnswer(totalAnswerCount);
     });
    
     /*
@@ -20,12 +25,7 @@ window.addEventListener('load', function() {
      */
     document.querySelector(".opinary-button-js").addEventListener('click', () => {
         const question = document.getElementById('opinary-input-text-question').value;
-        const buttonWrapper = document.getElementById('opinary-create-form-button');
         const answersInputs = document.getElementsByName('opinary-input-type-answer[]');
-        const codeHeadline = '<h2 class="opinary-h3 opinary-code-headline">Copy this code snippet into the source code of your website:</h2>';
-        const codeHeadlineInvalid = '<em class="opinary-code-hint" id="opinary-warning-invalid-setup">Please enter at least <strong>one valid poll question</strong> and <strong>two valid poll answers</strong>!</em>';
-        const warning = document.getElementById('opinary-warning-invalid-setup');
-        const codeBlock = document.getElementById('opinary-code-wrapper');
 
         let answers = [];
         for (var i = 0; i < answersInputs.length; i++) {
@@ -46,23 +46,14 @@ window.addEventListener('load', function() {
          *    if we have a valid poll question.
          */
         const validateAnswers = (arr) => {
-            let validQuestions = 0;
-            
-            for (const [key, value] of Object.entries(arr)) {
-                if (value != "") { validQuestions++ };
-            }
-
-            if (question.length != 0 && validQuestions >= 2) {
-                return true;
-            }
+            return arr.filter((el) => el != '');
         }
 
-        if(validateAnswers(answers) === true) {
+        /* - Filter empty entries of the array */
+        const answersFiltered = validateAnswers(answers);
 
+        if(answersFiltered.length >= totalAnswerCount && question != "") {
             warning && warning.remove();
-
-            /* - Filter empty entries of the array */
-            const answersFiltered = answers.filter((el) => el != '');
 
             document.getElementById('opinary-code-to-copy').innerHTML = `<div id="opinary-code-wrapper">
             ${codeHeadline}
@@ -99,7 +90,7 @@ window.addEventListener('load', function() {
      * ## Escape all characters that could interfere with rendering the HTML as 
      *    plain text.
      */
-    function escapeHtml(unsafe) {
+    const escapeHtml = (unsafe) => {
         return unsafe
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")

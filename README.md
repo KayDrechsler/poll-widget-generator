@@ -28,6 +28,10 @@ Please note, that the widget will only work if you have the local server running
 You can see two demo pages where the widget was already used. Just navigate in your browser to 
 http://localhost:8000/poll1.html or http://localhost:8000/poll2.html while `yarn ws` is running. 
 
+## Browser compatibility
+It is recommended to use the lates Google Chrome version since a real browser optimization hasn't been done yet.
+The widget is also working on Firefox 89.0 and Safari 14.1 but here not all visual features are supported (eye candy only).
+
 ## Unit tests
 You can run unit tests by executing `yarn test` on the root folder. 
 
@@ -38,7 +42,7 @@ My goal was to create a simple poll widget that is easy to understand and use.
 The HTML should reflect a modern HTML5 outline which should at least be fully accessible via keyboard navigation. The website is also fully useable without stylesheet. It should be readable for screenreaders and search engine crawlers. Except for the module scripts part it is fully validated.
 
 ### CSS
-Sass granted me a fast and reliable way to create layouts fast. Creating own stylesheets for each aspect/component of the website makes it easier for other developers to understand the styles and to contribute. Of course as a team we should decide together on topics like variable naming, using `$spacing` variables instead of fixed `px` values, relative units. 
+Sass granted me a fast and reliable way to create layouts fast. Creating own stylesheets for each aspect/component of the website makes it easier for other developers to understand the styles and to contribute. Of course as a team we should decide together on topics like variable naming, using `$spacing` variables instead of fixed `px` values, relative units. I decided to prefix all classes with an `opinary-` flag to make sure that styles won't collide with the global styles set up inside the user's webpage.
 I used the [BEM](http://getbem.com/naming/) methodology to reflect [atomic design](https://bradfrost.com/blog/post/atomic-web-design/). 
 
 ### JavaScript
@@ -73,3 +77,4 @@ I decided to use [ES6 template strings](https://hacks.mozilla.org/2015/05/es6-in
 - Giving the user a chance to vote for multiple choices should be tested.
 - Allowing authors to create a poll with already prefilled percentages.
 - Saving the data on a server instead of the localStorage is important as a next step.
+- The source code output of the widget should be copied via an additional button instead of having the user to solve this manually.

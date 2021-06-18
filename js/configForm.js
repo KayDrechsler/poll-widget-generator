@@ -12,8 +12,6 @@ window.addEventListener('load', function() {
     const codeHeadline = '<h2 class="opinary-h3 opinary-code-headline">Copy this code snippet into the source code of your website:</h2>';
     const codeHeadlineInvalid = '<em class="opinary-code-hint" id="opinary-warning-invalid-setup">Please enter at least <strong>one valid poll question</strong> and <strong>two valid poll answers</strong>!</em>';
     const buttonWrapper = document.getElementById('opinary-create-form-button');
-    const warning = document.getElementById('opinary-warning-invalid-setup');
-    const codeBlock = document.getElementById('opinary-code-wrapper');
 
     document.getElementById('opinary-create-answer').addEventListener('click', () => {
         totalAnswerCount++;
@@ -24,6 +22,8 @@ window.addEventListener('load', function() {
      * ## "Create Poll" Button events.
      */
     document.querySelector(".opinary-button-js").addEventListener('click', () => {
+        const warning = document.getElementById('opinary-warning-invalid-setup');
+        const codeBlock = document.getElementById('opinary-code-wrapper');
         const question = document.getElementById('opinary-input-text-question').value;
         const answersInputs = document.getElementsByName('opinary-input-type-answer[]');
 

@@ -4,7 +4,6 @@
 
 const createAnswer = () => {
     const totalAnswerCount = document.querySelectorAll('.opinary-poll__answer-row').length;
-    console.log(totalAnswerCount);
     const inputId = 'opinary-input-type-answer-' + totalAnswerCount;
     const removeButton = document.getElementsByClassName('opinary-poll__remove-answer');
 

@@ -8,14 +8,13 @@ window.addEventListener('load', function() {
     /*
      * ## Create/Remove additional answers.
      */
-    let totalAnswerCount = 2;
+    const minAnswerCount = 2;
     const codeHeadline = '<h2 class="opinary-h3 opinary-code-headline">Copy this code snippet into the source code of your website:</h2>';
     const codeHeadlineInvalid = '<em class="opinary-code-hint" id="opinary-warning-invalid-setup">Please enter at least <strong>one valid poll question</strong> and <strong>two valid poll answers</strong>!</em>';
     const buttonWrapper = document.getElementById('opinary-create-form-button');
 
     document.getElementById('opinary-create-answer').addEventListener('click', () => {
-        totalAnswerCount++;
-        createAnswer(totalAnswerCount);
+        createAnswer();
     });
    
     /*
@@ -52,7 +51,7 @@ window.addEventListener('load', function() {
         /* - Filter empty entries of the array */
         const answersFiltered = validateAnswers(answers);
 
-        if(answersFiltered.length >= totalAnswerCount && question != "") {
+        if(answersFiltered.length >= minAnswerCount && question != "") {
             warning && warning.remove();
 
             document.getElementById('opinary-code-to-copy').innerHTML = `<div id="opinary-code-wrapper">
